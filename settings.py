@@ -33,3 +33,10 @@ LOGGING = {
         },
     },
 }
+
+
+
+MIDDLEWARE = [
+    'yourapp.middleware.RequestResponseLoggingMiddleware',
+    # ...other middleware
+]
