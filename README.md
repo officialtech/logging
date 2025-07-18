@@ -44,3 +44,28 @@ pip install python-json-logger
 ```
 
 
+## Log Integration with `Sentry`
+- Open-source (you can self-host for free), also has a SaaS option.
+- Specializes in error/exception tracking (not general log search, but great for stack traces, error context, alerting).
+- Best for tracking exceptions, uncaught errors, performance monitoring.
+- Not a full replacement for centralized search like ELK, but complements it.
+
+
+#### How to integrate:
+1. Install Sentry SDK:
+```python
+pip install sentry-sdk
+```
+
+2. Configure in `settings.py`:
+```python
+import sentry_sdk
+sentry_sdk.init(
+    dsn="your_sentry_dsn",  # get from your Sentry project
+    traces_sample_rate=1.0,  # adjust as needed
+    environment=os.getenv('DJANGO_ENV', 'local'),
+)
+```
+- Sentry will auto-capture all unhandled Django errors/exceptions.
+- You can also send custom logs/errors to Sentry.
+
