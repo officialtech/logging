@@ -14,6 +14,12 @@ LOGGING = {
             'class': 'logging.StreamHandler',
             'formatter': 'json',
         },
+        # If you want to log to a file
+        # 'file': {
+        #     'class': 'logging.FileHandler',
+        #     'formatter': 'json',
+        #     'filename': 'myproject.log',
+        # },
     },
     'loggers': {
         '': {
